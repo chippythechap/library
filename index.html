@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="style.css">
+    <title>myLibrary.com</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><h1>myLibrary.com</h1>
+            <button id="newBook">New Book</button>
+        </div>
+        <div class="content"></div>
+    </div>
+    <div id="darkener"></div>
+    <div id="form">
+    <form>
+        <h2>Add book to library</h2>
+        <div>
+        <label for="name">book:</label>
+        <input id="name" type="text">
+        </div>
+        <div>
+        <label for="author">author:</label>
+        <input id="author" type="text">
+        </div>
+        <div>
+        <label for="pages">pages:</label>
+        <input id="pages" type="number">
+        </div>
+        <div class="checkbox">
+        <label for="isRead">Have you read it?</label>
+        <input id="isRead" type="checkbox">
+        </div>
+        <div>
+            <button id="addBook">Add Book</button>
+    </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
