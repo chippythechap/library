@@ -13,12 +13,11 @@
             <button id="newBook">New Book</button>
         </div>
         <div class="content"></div>
-        <input id="test" type="checkbox">
     </div>
-    <div id="darkener"></div>
-    <div id="form">
+    <dialog closedby="any">
     <form>
         <h2>Add book to library</h2>
+        <button id="closeDialog" type="button"><i class="material-symbols-outlined">close</i></button>
         <div>
         <label for="name">book:</label>
         <input id="name" type="text">
@@ -35,10 +34,9 @@
         <label for="isRead">Have you read it?</label>
         <input id="isRead" type="checkbox">
         </div>
-        <div>
             <button id="addBook">Add Book</button>
     </form>
-    </div>
+    </dialog>
     <script src="script.js"></script>
 </body>
 </html>

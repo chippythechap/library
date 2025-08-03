@@ -48,49 +48,50 @@ thead {
     background-color: lightgrey;
 }
 
-#darkener {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-#form {
-    background-color: white;
-    padding: 20px;
+dialog {
+    border: none;
     border-left: solid 10px rgb(42, 42, 42);
     border-radius: 10px;
-    display: none;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-#form > form > div {
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog > form {
+    padding: 20px;
+    position: relative;
+}
+
+
+dialog > form > div {
     padding: 10px;
 }
 
-#form > form > div:not(.checkbox) {
+dialog > form > div:not(.checkbox) {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
 }
 
-#form > form > h2 {
+dialog > form > h2 {
     text-align: center;
+}
+
+#closeDialog {
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .red {
     color: red;
     background-color: rgba(255, 0, 0, 0.5);
-}
-
-/*test*/
-
-#test {
-    width: 50px;
 }

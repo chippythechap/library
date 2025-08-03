@@ -1,37 +1,36 @@
 const container = document.querySelector(".container");
 const content = document.querySelector(".content");
-const darkener = document.querySelector("#darkener");
 const newBook = document.querySelector("#newBook");
 const addBook = document.querySelector("#addBook");
-const form = document.querySelector("#form");
+const dialog = document.querySelector("dialog");
+const closeBtn = document.querySelector("#closeDialog");
 
 const myLibrary = [];
 
 newBook.addEventListener("click", () => {
-  form.style.display = "block";
-  container.style.pointerEvents = "none";
-  container.style.userSelect = "none";
-  darkener.style.display = "block";
+  dialog.showModal();
 });
 
-form.addEventListener("submit", (event) => {
+dialog.addEventListener("submit", (event) => {
   let name = event.target.name.value;
   let author = event.target.author.value;
   let pages = event.target.pages.value;
   let isRead = event.target.isRead.checked;
 
   event.preventDefault();
-  form.style.display = "none";
-  container.style.pointerEvents = "auto";
-  container.style.userSelect = "auto";
-  darkener.style.display = "none";
 
   addBookToLibrary(name, author, pages, isRead);
 
   event.target.reset();
 
   displayArrayAsTable(myLibrary);
+
+  dialog.close();
 });
+
+closeBtn.addEventListener("click", () => {
+  dialog.close();
+})
 
 addBookToLibrary("Harry Potter", "Angela Merkel", 242, true);
 addBookToLibrary("Jack Sparrow", "PewDiePie", 312, true);
