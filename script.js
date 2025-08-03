@@ -54,6 +54,8 @@ function addBookToLibrary(name, author, pages, isRead) {
 }
 
 function displayArrayAsTable(array) {
+  content.innerHTML = "";
+
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tbody = document.createElement("tbody");
@@ -85,9 +87,19 @@ function createThead(array, thead) {
 function createTbody(array, tbody) {
   for (let i = 0; i < myLibrary.length; i++) {
     const tr = document.createElement("tr");
-    Object.values(array[i]).forEach((el) => {
+    Object.entries(array[i]).forEach(([key, value]) => {
       const td = document.createElement("td");
-      td.textContent = el;
+      if (value === true || value === false) {
+        const button = document.createElement("button");
+        button.textContent = value;
+        button.addEventListener("click", () => {
+          myLibrary[i][key] = !myLibrary[i][key];
+          displayArrayAsTable(myLibrary);
+        })
+        td.appendChild(button);
+      } else {
+        td.textContent = value;
+      }
       tr.appendChild(td);
     });
     const td = document.createElement("td");
@@ -95,10 +107,10 @@ function createTbody(array, tbody) {
     removeButton.innerHTML = '<i class="material-symbols-outlined">close</i>';
     removeButton.classList += "red";
     removeButton.addEventListener("click", () => {
-        myLibrary.splice(i,1)
-        document.querySelector("table").remove();
-        displayArrayAsTable(myLibrary);
-    })
+      myLibrary.splice(i, 1);
+      document.querySelector("table").remove();
+      displayArrayAsTable(myLibrary);
+    });
     td.appendChild(removeButton);
     tr.appendChild(td);
     tbody.appendChild(tr);
@@ -106,5 +118,3 @@ function createTbody(array, tbody) {
 
   return tbody;
 }
-
-function removeBook(target) {}
